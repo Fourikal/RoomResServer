@@ -9,7 +9,7 @@ def sendMessage(payload, client):
     client.publish(clientlist[1], data)
 
 def choose(command, innputjson ,client): # Choose method
-    metoder={'list': db.getRommList(innputjson), 'stop': client.disconnect}
+    metoder={'list': db.getAvailableRooms(innputjson), 'stop': client.disconnect}
     sendMessage(metoder[command], client)
 
 def parse(msg, client):
