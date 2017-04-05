@@ -1,4 +1,4 @@
-__author__ = 'Anders'
-host='localhost'
-user='root'
+host='mysql.stud.ntnu.no'
+user='andernyk_rr'
 password='1234'
+dbname='andernyk_romres'

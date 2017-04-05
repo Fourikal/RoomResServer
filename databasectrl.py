@@ -15,7 +15,7 @@ class db():
         self.connection = pymysql.connect(host=DBfields.host,
                                      user=DBfields.user,
                                      password=DBfields.password,
-                                     db='roomresdb',
+                                     db=DBfields.dbname,
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         self.cursor=self.connection.cursor()
@@ -25,7 +25,7 @@ class db():
         #Gets list of rooms (Performance-warning: This is primarily its own method for reuse-purposes in other methods)
         try:
             if 'building' in innputjson.keys():
-                sql= "SELECT Room.Name, Room.Id FROM Room INNER JOIN position on room.Position_idPosition=position.idPosition inner join building on position.Building_Id=building.Id where building.Name='"+innputjson['building']+"';"
+                sql= "SELECT Room.Name, Room.Id FROM Room INNER JOIN Position on Room.Position_idPosition=Position.idPosition inner join Building on Position.Building_Id=Building.Id where Building.Name='"+innputjson['building']+"';"
             else:
                 sql = "SELECT Name FROM Room"
             self.cursor.execute(sql)
@@ -56,6 +56,7 @@ class db():
                     pass
         else:
             AvRooms=allRooms
+        AvRooms.append({'type':'list'})
         return AvRooms
 
     def myBookings(self, inputJson):
@@ -63,7 +64,6 @@ class db():
             sql = "SELECT * From Booking where User_Id='"+str(inputJson['user'])+"';"
             self.cursor.execute(sql)
             booking=self.cursor.fetchall()
-            print(booking)#!!!todo: ordne dette
             booking.append({'type':'bookinglist'})
             return booking
         finally:
