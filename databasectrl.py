@@ -58,13 +58,13 @@ class db():
             AvRooms=allRooms
         return AvRooms
 
-    """def myBookings(self, inputJson):
+    def myBookings(self, inputJson):
         try:
             sql = "SELECT * From Booking where User_Id='"+str(inputJson['user'])+"';"
             self.cursor.execute(sql)
             booking=self.cursor.fetchall()
-            print(booking)
-            #booking['type']='bookingRes'
+            print(booking)#!!!todo: ordne dette
+            booking.append({'type':'bookinglist'})
             return booking
         finally:
-            pass"""
+            pass
