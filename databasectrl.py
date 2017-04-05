@@ -57,3 +57,12 @@ class db():
         else:
             AvRooms=allRooms
         return AvRooms
+
+    def myBookings(self, inputJson):
+        try:
+            sql = "SELECT * From Booking where User_Id='"+str(inputJson['user'])+"';"
+            self.cursor.execute(sql)
+            booking=self.cursor.fetchall()
+            return booking
+        finally:
+            pass
