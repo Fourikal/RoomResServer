@@ -20,7 +20,6 @@ class db():
                                      cursorclass=pymysql.cursors.DictCursor)
         self.cursor=self.connection.cursor()
 
-
     def getRommList(self, innputjson):
         #Gets list of rooms (Performance-warning: This is primarily its own method for reuse-purposes in other methods)
         try:
@@ -34,7 +33,6 @@ class db():
             return result
         finally:
             pass
-
 
     def getAvailableRooms(self, innputjson):
         #This method gets rooms. Optional filters: buidling, time which it is free. AvRooms contains roomname and id for rooms that fullfills the demands
