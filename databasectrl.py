@@ -54,7 +54,7 @@ class db():
                     pass
         else:
             AvRooms=allRooms
-        AvRooms.append({'type':'list'})
+        AvRooms.append({'type':'list', 'clientname' : innputjson['clientname']})
         return AvRooms
 
     def myBookings(self, inputJson):
