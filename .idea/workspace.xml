@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="939786f7-f0c7-48d5-9b81-d4cdffa36f73" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databasectrl.py" afterPath="$PROJECT_DIR$/databasectrl.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mqttFields.py" afterPath="$PROJECT_DIR$/mqttFields.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoomResServer.iws" />
@@ -92,8 +91,8 @@
       <file leaf-file-name="databasectrl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/databasectrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5236427">
-              <caret line="48" column="74" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.73204905">
+              <caret line="64" column="74" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
                 <element signature="e#239#649#0" expanded="false" />
@@ -426,7 +425,13 @@
       <option name="project" value="LOCAL" />
       <updated>1491475192422</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added clientname functionality">
+      <created>1491478600062</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1491478600062</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -440,7 +445,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32594234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32594234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -472,7 +477,8 @@
     <MESSAGE value="Thing works" />
     <MESSAGE value="Is serving mybookings" />
     <MESSAGE value="Fixed list/dict error with a catch-type kinda thing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed list/dict error with a catch-type kinda thing" />
+    <MESSAGE value="added clientname functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added clientname functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -591,8 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/databasectrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5236427">
-          <caret line="48" column="74" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.73204905">
+          <caret line="64" column="74" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
             <element signature="e#239#649#0" expanded="false" />

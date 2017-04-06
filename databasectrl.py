@@ -62,7 +62,7 @@ class db():
             sql = "SELECT * From Booking where User_Id='"+str(inputJson['user'])+"';"
             self.cursor.execute(sql)
             booking=self.cursor.fetchall()
-            booking.append({'type':'bookinglist'})
+            booking.append({'type':'bookinglist', 'clientname' : inputJson['clientname']})
             return booking
         finally:
             pass
