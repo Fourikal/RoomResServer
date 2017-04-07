@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="939786f7-f0c7-48d5-9b81-d4cdffa36f73" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databasectrl.py" afterPath="$PROJECT_DIR$/databasectrl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/msgParserHelper.py" afterPath="$PROJECT_DIR$/msgParserHelper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoomResServer.iws" />
@@ -36,16 +37,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/paho/mqtt/client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2573" column="0" selection-start-line="2573" selection-start-column="0" selection-end-line="2573" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="mqttFields.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mqttFields.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -60,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/msgParserHelper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="e#22#39#0" expanded="true" />
               </folding>
@@ -68,35 +59,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1777" column="0" selection-start-line="1777" selection-start-column="0" selection-end-line="1777" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="databasectrl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/databasectrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73204905">
-              <caret line="64" column="74" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.9525483">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
-                <element signature="e#239#649#0" expanded="false" />
-                <element signature="e#698#1342#0" expanded="false" />
+                <element signature="e#248#685#0" expanded="false" />
+                <element signature="e#734#1409#0" expanded="false" />
+                <element signature="e#2617#2945#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,6 +95,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -130,8 +107,8 @@
         <option value="$PROJECT_DIR$/DBfields.py" />
         <option value="$PROJECT_DIR$/testerclass.py" />
         <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/msgParserHelper.py" />
         <option value="$PROJECT_DIR$/mqttFields.py" />
+        <option value="$PROJECT_DIR$/msgParserHelper.py" />
         <option value="$PROJECT_DIR$/databasectrl.py" />
       </list>
     </option>
@@ -431,12 +408,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491478600062</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added clientname functionality">
+      <created>1491478738336</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1491478738336</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24907456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -444,8 +427,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32594234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32594234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -481,7 +464,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="added clientname functionality" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -511,8 +496,9 @@
           <caret line="58" column="27" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
-            <element signature="e#239#649#0" expanded="false" />
-            <element signature="e#698#1342#0" expanded="false" />
+            <element signature="e#248#685#0" expanded="false" />
+            <element signature="e#734#1409#0" expanded="false" />
+            <element signature="e#2617#2945#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -551,10 +537,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/paho/mqtt/client.py">
+    <entry file="file://$PROJECT_DIR$/DBfields.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2573" column="0" selection-start-line="2573" selection-start-column="0" selection-end-line="2573" selection-end-column="0" />
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -567,10 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBfields.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/paho/mqtt/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.29422066">
+          <caret line="2573" column="0" selection-start-line="2573" selection-start-column="0" selection-end-line="2573" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -588,7 +574,7 @@
     <entry file="file://$PROJECT_DIR$/msgParserHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="e#22#39#0" expanded="true" />
           </folding>
@@ -597,12 +583,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/databasectrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73204905">
-          <caret line="64" column="74" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.9525483">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
-            <element signature="e#239#649#0" expanded="false" />
-            <element signature="e#698#1342#0" expanded="false" />
+            <element signature="e#248#685#0" expanded="false" />
+            <element signature="e#734#1409#0" expanded="false" />
+            <element signature="e#2617#2945#0" expanded="false" />
           </folding>
         </state>
       </provider>
