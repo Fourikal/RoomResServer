@@ -6,7 +6,7 @@ mqtt communication in Python i have used the Paho-mqtt library. This is installe
 
 ```python
 pip install paho-mqtt
-```python
+```
 
 When installing for python3.x and having other python versions on your system i think you will have to use the following piece of code instead. (Do not know how things work, just push buttons until things work
 
