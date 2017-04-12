@@ -1,7 +1,7 @@
 # RoomResServer
 
 ## Protocol and payload
-We are using the MQTT-protocol or communication. See the [mqttfields document](mqttfields.py) for information to connect with the at any time used mqtt broker. As library for
+We are using the MQTT-protocol or communication. See the [mqttfields document](mqttFields.py) for information to connect with the at any time used mqtt broker. As library for
 mqtt communication in Python i have used the Paho-mqtt library. This is installed in the following way with pip.
 
 ```python
