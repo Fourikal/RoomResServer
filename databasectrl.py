@@ -18,6 +18,7 @@ class db():
                                           cursorclass=pymysql.cursors.DictCursor)
         self.cursor = self.connection.cursor()
 
+    #getRommList does return list of rooms in a building or everyone
     def getRommList(self, innputjson):
         # Gets list of rooms (Performance-warning: This is primarily its own method for reuse-purposes in other methods)
         try:
@@ -33,6 +34,8 @@ class db():
         finally:
             pass
 
+    #This methods uses getroomlist to get a list of rooms, then iterate trhough everyrrom and for every room iterate
+    ## for every booing on that room to see if it is overlap. It is not very efficient.
     def getAvailableRooms(self, innputjson):
         # This method gets rooms. Optional filters: buidling, time which it is free. AvRooms contains roomname and id for rooms that fullfills the demands
         allRooms = self.getRommList(innputjson)
@@ -57,6 +60,7 @@ class db():
         AvRooms.append({'type': 'list', 'clientname': innputjson['clientname']})
         return AvRooms
 
+    #myBooking shows every booking for one user.
     def myBookings(self, inputJson):
         try:
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
@@ -67,6 +71,7 @@ class db():
         finally:
             pass
 
+    #This takes in
     def cardAsk(self, innputjson):
         # Is there a booking for that room at this moment?
         # If yes, then is it the same user that queries?
