@@ -97,3 +97,15 @@ class db():
             pass
         finally:
             pass
+
+    def cardCancelRest(self, inputjson, bookingId):
+        #finds booking in database, updates endtime to now
+        try:
+            sql="UPDATE table_name SET ToTimeNumber ="+time.time()+"  WHERE Id='"+inputjson['bookingId']+"'; "
+            self.cursor.execute(sql)
+            self.connection.commit()
+            return
+        except:
+            pass
+        finally:
+            pass
