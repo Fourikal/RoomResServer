@@ -24,3 +24,17 @@ to install on python
 ```python
 pip install pymysql
 ```
+
+## Message types
+
+### Overview
+
+|Command|mandatory parameters|optional parameters|output|
+|---|---|---|---|
+|   |   |   |   |
+|list | |building, from, to|list of dictionaries. Every dcitionary consist of the fields to one particular room. last element is a dictionoary that contains type and which client asked|
+|bookings|user| |list of dictionaries that contains the information of one particular booking. last element is a dictionoary that contains type and which client asked|
+|cardask|user, bookingid|   |confirmed/denied/booked|
+|getStatus| |   |status|
+
+
