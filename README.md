@@ -35,6 +35,8 @@ pip install pymysql
 |list | |building, from, to|list of dictionaries. Every dcitionary consist of the fields to one particular room. last element is a dictionoary that contains type and which client asked|
 |bookings|user| |list of dictionaries that contains the information of one particular booking. last element is a dictionoary that contains type and which client asked|
 |cardask|user, bookingid|   |confirmed/denied/booked|
-|getStatus| |   |status|
+|cardCancelRest|user, roomid|   |confirmed|
+|makeBooking|User, Room, From, To|  |Confirmed/denied|
+|getStatus (cant remember what this was supposed to give status on)| |   |status|
 
 
