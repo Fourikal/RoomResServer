@@ -20,6 +20,12 @@ class parser:
             self.sendMessage(self.db.getAvailableRooms(innputjson1), client)
         elif innputjson1['command']=='bookings':
              self.sendMessage(self.db.myBookings(innputjson1), client)
+        elif innputjson1['command']=='cardask':
+             self.sendMessage(self.db.cardAsk(innputjson1), client)
+        elif innputjson1['command']=='cardCancelRest':
+             self.sendMessage(self.db.cardCancelRest(innputjson1), client)
+
+
 
 
     def parsek(self, msg, client):
