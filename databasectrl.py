@@ -1,6 +1,7 @@
 __author__ = 'Anders'
 import pymysql
 import DBfields
+#import DBfields2 as DBfields
 import time
 
 
@@ -31,6 +32,8 @@ class db():
             result = self.cursor.fetchall()
             # print(result) #debug
             return result
+        except:
+            pass
         finally:
             pass
 
@@ -53,6 +56,8 @@ class db():
                             flag = False
                     if flag == True:
                         AvRooms.append(i)
+                except:
+                    return [{'type': 'error', 'errorMsg': 'getAvaiRooms'}]
                 finally:
                     pass
         else:
@@ -68,6 +73,8 @@ class db():
             booking = self.cursor.fetchall()
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
             return booking
+        except:
+            return [{'type': 'error', 'errorMsg': 'mybookings'}]
         finally:
             pass
 
@@ -92,20 +99,25 @@ class db():
             if flag == True:  # todo everything here must 'ordnes med'
                 message = "bookable"
                 print("ledig")
-            return [{"response": message}, {'type': 'cardAsked', 'clientname': innputjson['clientname']}]
+            return [{'type': 'cardAsked', 'clientname': innputjson['clientname'], "response": message}]
         except:
+            return [{'type': 'error', 'errorMsg': 'cardAsk'}]
             pass
         finally:
             pass
 
-    def cardCancelRest(self, inputjson, bookingId):
+    def cardCancelRest(self, inputjson):
         #finds booking in database, updates endtime to now
         try:
-            sql="UPDATE table_name SET ToTimeNumber ="+time.time()+"  WHERE Id='"+inputjson['bookingId']+"'; "
+            sql="UPDATE Booking SET ToTimeNumber ="+str(int(time.time()))+"  WHERE Id='"+str(inputjson['bookingId'])+"'; "
             self.cursor.execute(sql)
             self.connection.commit()
-            return
+            return [{'type': 'cancelledRest', 'clientname': inputjson['clientname'], 'status': 'ok'}]
         except:
+            return [{'type': 'error', 'errorMsg': 'cardCancelrest'}]
             pass
         finally:
             pass
+
+    def makeBooking(self, inputjson):
+        sql= "insert into"
