@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="939786f7-f0c7-48d5-9b81-d4cdffa36f73" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databasectrl.py" afterPath="$PROJECT_DIR$/databasectrl.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoomResServer.iws" />
@@ -49,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/msgParserHelper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="52" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="52" />
+              <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
               <folding>
                 <element signature="e#22#39#0" expanded="true" />
               </folding>
@@ -60,15 +61,14 @@
       <file leaf-file-name="databasectrl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/databasectrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08963093">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.7110333">
+              <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
                 <element signature="e#278#715#0" expanded="false" />
                 <element signature="e#833#1547#0" expanded="false" />
                 <element signature="e#1801#3006#0" expanded="false" />
-                <element signature="e#3102#3517#0" expanded="false" />
-                <element signature="e#3575#4738#0" expanded="false" />
+                <element signature="e#3598#4761#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -502,12 +502,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492085270130</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added messages, server is runable">
+      <created>1492085304118</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1492085304118</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24907456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -515,8 +521,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32594234" sideWeight="0.50396615" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32594234" sideWeight="0.49603385" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32594234" sideWeight="0.49603385" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -553,7 +559,8 @@
     <MESSAGE value="adding documentation." />
     <MESSAGE value="Some half functions" />
     <MESSAGE value="added sql script" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sql script" />
+    <MESSAGE value="Added messages, server is runable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added messages, server is runable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -599,8 +606,7 @@
             <element signature="e#278#715#0" expanded="false" />
             <element signature="e#833#1547#0" expanded="false" />
             <element signature="e#1801#3006#0" expanded="false" />
-            <element signature="e#3102#3517#0" expanded="false" />
-            <element signature="e#3575#4738#0" expanded="false" />
+            <element signature="e#3598#4761#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -664,8 +670,7 @@
             <element signature="e#278#715#0" expanded="false" />
             <element signature="e#833#1547#0" expanded="false" />
             <element signature="e#1801#3006#0" expanded="false" />
-            <element signature="e#3102#3517#0" expanded="false" />
-            <element signature="e#3575#4738#0" expanded="false" />
+            <element signature="e#3598#4761#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -729,8 +734,7 @@
             <element signature="e#278#715#0" expanded="false" />
             <element signature="e#833#1547#0" expanded="false" />
             <element signature="e#1801#3006#0" expanded="false" />
-            <element signature="e#3102#3517#0" expanded="false" />
-            <element signature="e#3575#4738#0" expanded="false" />
+            <element signature="e#3598#4761#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -780,8 +784,7 @@
             <element signature="e#278#715#0" expanded="false" />
             <element signature="e#833#1547#0" expanded="false" />
             <element signature="e#1801#3006#0" expanded="false" />
-            <element signature="e#3102#3517#0" expanded="false" />
-            <element signature="e#3575#4738#0" expanded="false" />
+            <element signature="e#3598#4761#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,8 +826,7 @@
             <element signature="e#278#715#0" expanded="false" />
             <element signature="e#833#1547#0" expanded="false" />
             <element signature="e#1801#3006#0" expanded="false" />
-            <element signature="e#3102#3517#0" expanded="false" />
-            <element signature="e#3575#4738#0" expanded="false" />
+            <element signature="e#3598#4761#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -923,7 +925,7 @@
     <entry file="file://$PROJECT_DIR$/msgParserHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="52" />
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
           <folding>
             <element signature="e#22#39#0" expanded="true" />
           </folding>
@@ -932,15 +934,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/databasectrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08963093">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.7110333">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
             <element signature="e#278#715#0" expanded="false" />
             <element signature="e#833#1547#0" expanded="false" />
             <element signature="e#1801#3006#0" expanded="false" />
-            <element signature="e#3102#3517#0" expanded="false" />
-            <element signature="e#3575#4738#0" expanded="false" />
+            <element signature="e#3598#4761#0" expanded="false" />
           </folding>
         </state>
       </provider>

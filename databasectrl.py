@@ -68,6 +68,7 @@ class db():
     #myBooking shows every booking for one user.
     def myBookings(self, inputJson):
         try:
+            booking=[]
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
             self.cursor.execute(sql)
             booking = self.cursor.fetchall()
