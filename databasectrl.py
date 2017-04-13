@@ -1,7 +1,7 @@
 __author__ = 'Anders'
 import pymysql
-import DBfields
-#import DBfields2 as DBfields
+#import DBfields
+import DBfields2 as DBfields
 import time
 
 
@@ -72,6 +72,8 @@ class db():
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
             self.cursor.execute(sql)
             booking = self.cursor.fetchall()
+            if booking==None:
+                booking=[]
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
             return booking
         except:
