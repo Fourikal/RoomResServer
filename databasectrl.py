@@ -68,12 +68,11 @@ class db():
     #myBooking shows every booking for one user.
     def myBookings(self, inputJson):
         try:
-            booking=[] #added this for the null cases
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
             self.cursor.execute(sql)
             booking = self.cursor.fetchall()
             if booking==None:
-                booking=[]
+                booking=[[]]
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
             return booking
         except:
