@@ -40,37 +40,39 @@ pip install pymysql
 
 
 
-### examples of messages and answears:
+### examples of messages and answers:
 
 
-```sent to server
-{'clientname': 'client1', 'building': 'Realfagsbygget', 'to': 1490976000, 'command': 'liste', 'from': 1490972400}
-
+```
+sent to server:
+{'to': 1490976000, 'command': 'liste', 'building': 'Realfagsbygget', 'clientname': 'client1', 'from': 1490972400}
 Response:
-{'Id': 2, 'Name': 'R1'}
-{'clientname': 'client1', 'type': 'list'}
+{'Name': 'R1', 'Id': 2}
+{'type': 'list', 'clientname': 'client1'}
 
-
-sent to server
-{'user': 1, 'clientname': 'client1', 'command': 'bookings'}
-
+sent to server:
+{'command': 'liste', 'clientname': 'client1'}
 Response:
-{'Breached': None, 'Room_Id1': 1, 'Room_Position_idPosition': 1, 'ToTimeNumber': 1492097982, 'Confirmed': None, 'User_Id': 1, 'Id': 1, 'FromTimeNumber': 1490947200}
-{'Breached': None, 'Room_Id1': 2, 'Room_Position_idPosition': 2, 'ToTimeNumber': 1490954400, 'Confirmed': None, 'User_Id': 1, 'Id': 2, 'FromTimeNumber': 1490947200}
-{'Breached': None, 'Room_Id1': 3, 'Room_Position_idPosition': 3, 'ToTimeNumber': 1490954400, 'Confirmed': None, 'User_Id': 1, 'Id': 3, 'FromTimeNumber': 1500648}
-{'clientname': 'client1', 'type': 'bookinglist'}
+{'Name': 'R90'}
+{'Name': 'R1'}
+{'Name': 'El101'}
+{'type': 'list', 'clientname': 'client1'}
 
-
-sent to server
-{'user': 1, 'clientname': 'client1', 'bookingId': 1, 'command': 'cardCancelRest'}
-
+sent to server:
+{'clientname': 'client1', 'command': 'bookings', 'user': 1}
 Response:
-{'status': 'ok', 'clientname': 'client1', 'type': 'cancelledRest'}
+{'User_Id': 1, 'Confirmed': None, 'FromTimeNumber': 1490947200, 'Room_Position_idPosition': 1, 'Room_Id1': 1, 'ToTimeNumber': 1492283315, 'Id': 1, 'Breached': None}
+{'User_Id': 1, 'Confirmed': None, 'FromTimeNumber': 1490947200, 'Room_Position_idPosition': 2, 'Room_Id1': 2, 'ToTimeNumber': 1490954400, 'Id': 2, 'Breached': None}
+{'User_Id': 1, 'Confirmed': None, 'FromTimeNumber': 1500648, 'Room_Position_idPosition': 3, 'Room_Id1': 3, 'ToTimeNumber': 1490954400, 'Id': 3, 'Breached': None}
+{'type': 'bookinglist', 'clientname': 'client1'}
 
-
-sent to server
-{'user': 1, 'clientname': 'client1', 'bookingId': 1, 'command': 'cardask'}
-
+sent to server:
+{'clientname': 'client1', 'command': 'cardCancelRest', 'bookingId': 1, 'user': 1}
 Response:
-{'type': 'error', 'errorMsg': 'cardAsk'}
+{'type': 'cancelledRest', 'status': 'ok', 'clientname': 'client1'}
+
+sent to server:
+{'clientname': 'client1', 'command': 'cardask', 'user': 1, 'roomId': 1}
+Response:
+{'type': 'cardAsked', 'clientname': 'client1', 'response': 'bookable'}
 ```

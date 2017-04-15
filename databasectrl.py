@@ -1,7 +1,7 @@
 __author__ = 'Anders'
 import pymysql
-#import DBfields
-import DBfields2 as DBfields
+#import DBfields2 as DBfields
+import DBfields
 import time
 
 
@@ -92,7 +92,6 @@ class db():
             allBookingsPerRoom = self.cursor.fetchall()
             for j in allBookingsPerRoom:
                 tid = int(time.time())
-                print([j['FromTimeNumber'], j['ToTimeNumber']], [tid, tid + 5])
                 if checkTimeOverlap([j['FromTimeNumber'], j['ToTimeNumber']], [tid, tid + 5]) != 0:
                     flag = False
                     if innputjson['user'] == j['User_Id']:
@@ -101,7 +100,6 @@ class db():
                         message = "busy"
             if flag == True:  # todo everything here must 'ordnes med'
                 message = "bookable"
-                print("ledig")
             return [{'type': 'cardAsked', 'clientname': innputjson['clientname'], "response": message}]
         except:
             return [{'type': 'error', 'errorMsg': 'cardAsk'}]
