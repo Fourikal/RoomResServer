@@ -70,9 +70,10 @@ class db():
         try:
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
             self.cursor.execute(sql)
-            booking = self.cursor.fetchall()
-            if booking==None:
-                booking=[[]]
+            booking=[]
+            result = self.cursor.fetchall()
+            for i in result:
+                booking.append(i)
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
             return booking
         except:
