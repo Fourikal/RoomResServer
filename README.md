@@ -30,8 +30,7 @@ pip install pymysql
 ### Overview
 
 |Command|mandatory parameters|optional parameters|output|implemented|
-|---|---|---|---|
-|   |   |   |   |
+|---|---|---|---|---|
 |list | |building, from, to|list of dictionaries. Every dcitionary consist of the fields to one particular room. last element is a dictionoary that contains type and which client asked|YES|
 |bookings|user| |list of dictionaries that contains the information of one particular booking. last element is a dictionoary that contains type and which client asked|YES|
 |cardask|user, bookingid|   |confirmed/denied/booked|YES|

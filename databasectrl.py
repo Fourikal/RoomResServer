@@ -1,7 +1,7 @@
 __author__ = 'Anders'
 import pymysql
-#import DBfields2 as DBfields
-import DBfields
+import DBfields2 as DBfields
+#import DBfields
 import time
 
 
