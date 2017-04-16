@@ -35,7 +35,9 @@ pip install pymysql
 |bookings|user| |list of dictionaries that contains the information of one particular booking. last element is a dictionoary that contains type and which client asked|YES|
 |cardask|user, bookingid|   |confirmed/denied/booked|YES|
 |cardCancelRest|user, roomid|   |confirmed|YES (will add checking if time already is expired)|
-|makeBooking|User, Room, From, To|  |Confirmed/denied|NO|
+|makeBooking|User, Room, From, To|  |Confirmed/denied|YES|
+|deleteBooking|bookingId|   |Confirmed|YES|
+|RFIDisUser|RFID|  |UserId|YES|
 
 
 
