@@ -1,7 +1,7 @@
 __author__ = 'Anders'
 import pymysql
 import DBfields2 as DBfields
-#import DBfields
+import DBfields
 import time
 
 
@@ -70,7 +70,6 @@ class db():
         try:
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
             self.cursor.execute(sql)
-            booking=[]
             result = self.cursor.fetchall()
             for i in result:
                 booking.append(i)
