@@ -24,7 +24,8 @@ class parser:
              self.sendMessage(self.db.cardAsk(innputjson1), client)
         elif innputjson1['command']=='cardCancelRest':
              self.sendMessage(self.db.cardCancelRest(innputjson1), client)
-
+        elif innputjson1['command']=='makeBooking':
+             self.sendMessage(self.db.makeBooking(innputjson1), client)
 
 
 

@@ -68,9 +68,11 @@ class db():
     #myBooking shows every booking for one user.
     def myBookings(self, inputJson):
         try:
+            booking=[]
             sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
+            print(result)
             for i in result:
                 booking.append(i)
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
@@ -120,4 +122,12 @@ class db():
             pass
 
     def makeBooking(self, inputjson):
-        sql= "insert into"
+        try:
+            sql= "INSERT INTO Booking (Room_Id1, FromTimeNumber, ToTimeNumber, User_Id) VALUES ('%s', %s, %s, %s ) " % (inputjson['roomId'], inputjson['from'], inputjson['to'], inputjson['user'])
+            self.cursor.execute(sql)
+            self.connection.commit()
+            return [{'type': 'makeBooking', 'msg': 'Ok'}]
+        except:
+            return [{'type': 'error', 'errorMsg': 'makeBooking'}]
+        finally:
+            pass
