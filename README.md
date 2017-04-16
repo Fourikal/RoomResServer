@@ -43,35 +43,50 @@ pip install pymysql
 
 
 ```
-sent to server:
-{'to': 1490976000, 'command': 'liste', 'building': 'Realfagsbygget', 'clientname': 'client1', 'from': 1490972400}
+{'building': 'Realfagsbygget', 'clientname': 'client1', 'to': 1490976000, 'from': 1490972400, 'command': 'liste'}
 Response:
-{'Name': 'R1', 'Id': 2}
-{'type': 'list', 'clientname': 'client1'}
+{'Id': 2, 'Name': 'R1'}
+{'clientname': 'client1', 'type': 'list'}
 
 sent to server:
-{'command': 'liste', 'clientname': 'client1'}
+{'clientname': 'client1', 'command': 'liste'}
 Response:
 {'Name': 'R90'}
 {'Name': 'R1'}
 {'Name': 'El101'}
-{'type': 'list', 'clientname': 'client1'}
+{'clientname': 'client1', 'type': 'list'}
 
 sent to server:
-{'clientname': 'client1', 'command': 'bookings', 'user': 1}
+{'clientname': 'client1', 'user': 1, 'command': 'bookings'}
 Response:
-{'User_Id': 1, 'Confirmed': None, 'FromTimeNumber': 1490947200, 'Room_Position_idPosition': 1, 'Room_Id1': 1, 'ToTimeNumber': 1492283315, 'Id': 1, 'Breached': None}
-{'User_Id': 1, 'Confirmed': None, 'FromTimeNumber': 1490947200, 'Room_Position_idPosition': 2, 'Room_Id1': 2, 'ToTimeNumber': 1490954400, 'Id': 2, 'Breached': None}
-{'User_Id': 1, 'Confirmed': None, 'FromTimeNumber': 1500648, 'Room_Position_idPosition': 3, 'Room_Id1': 3, 'ToTimeNumber': 1490954400, 'Id': 3, 'Breached': None}
-{'type': 'bookinglist', 'clientname': 'client1'}
+{'Id': 1, 'Room_Position_idPosition': 1, 'Confirmed': 0, 'FromTimeNumber': 1490947200, 'Breached': 0, 'ToTimeNumber': 1492367449, 'User_Id': 1, 'Room_Id1': 1}
+{'Id': 2, 'Room_Position_idPosition': 2, 'Confirmed': 0, 'FromTimeNumber': 1490947200, 'Breached': 0, 'ToTimeNumber': 1490954400, 'User_Id': 1, 'Room_Id1': 2}
+{'Id': 3, 'Room_Position_idPosition': 3, 'Confirmed': 0, 'FromTimeNumber': 1500648, 'Breached': 0, 'ToTimeNumber': 1490954400, 'User_Id': 1, 'Room_Id1': 3}
+{'Id': 4, 'Room_Position_idPosition': 1, 'Confirmed': 0, 'FromTimeNumber': 1491473600, 'Breached': 0, 'ToTimeNumber': 1491625200, 'User_Id': 1, 'Room_Id1': 1}
+{'clientname': 'client1', 'type': 'bookinglist'}
 
 sent to server:
-{'clientname': 'client1', 'command': 'cardCancelRest', 'bookingId': 1, 'user': 1}
+{'clientname': 'client1', 'bookingId': 1, 'user': 1, 'command': 'cardCancelRest'}
 Response:
-{'type': 'cancelledRest', 'status': 'ok', 'clientname': 'client1'}
+{'clientname': 'client1', 'status': 'ok', 'type': 'cancelledRest'}
 
 sent to server:
-{'clientname': 'client1', 'command': 'cardask', 'user': 1, 'roomId': 1}
+{'roomId': 1, 'RFID': 'abab', 'user': 1, 'command': 'cardask', 'clientname': 'client1'}
 Response:
-{'type': 'cardAsked', 'clientname': 'client1', 'response': 'bookable'}
+{'clientname': 'client1', 'response': 'bookable', 'type': 'cardAsked'}
+
+sent to server:
+{'command': 'makeBooking', 'roomId': 1, 'user': 1, 'clientname': 'client1', 'to': 400, 'from': 200}
+Response:
+{'msg': 'Ok', 'type': 'makeBooking'}
+
+sent to server:
+{'clientname': 'client1', 'bookingId': 7, 'user': 1, 'command': 'deleteBooking'}
+Response:
+{'msg': 'Ok', 'type': 'deleteBooking'}
+
+sent to server:
+{'clientname': 'client1', 'RFID': 'abab', 'command': 'RFIDisUser'}
+Response:
+{'userId': {'Id': 1}, 'RFID': 'abab', 'type': 'RFIDisUser'}
 ```
