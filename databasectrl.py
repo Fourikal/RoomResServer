@@ -138,6 +138,3 @@ class db():
         finally:
             pass
 
-    def addRoom(self, inputjson):
-        pass
-
