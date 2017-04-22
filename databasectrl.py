@@ -1,12 +1,11 @@
 __author__ = 'Anders'
+import datetime
 import pymysql
 #import DBfields2 as DBfields
 import DBfields
 import time
 
-
-def checkTimeOverlap(intervallA, intervallB):
-    return max(0, min(intervallA[1], intervallB[1]) - max(intervallA[0], intervallB[0]))
+experimentmode=True
 
 
 class db():
@@ -19,75 +18,49 @@ class db():
                                           cursorclass=pymysql.cursors.DictCursor)
         self.cursor = self.connection.cursor()
 
-    # getRommList does return list of rooms in a building or everyone
-    def getRommList(self, innputjson):
-        # Gets list of rooms (Performance-warning: This is primarily its own method for reuse-purposes in other methods)
-        try:
-            if 'building' in innputjson.keys():
-                sql = "SELECT Room.Name, Room.Id FROM Room INNER JOIN Position on Room.Position_idPosition=Position.idPosition inner join Building on Position.Building_Id=Building.Id where Building.Name='" + \
-                      innputjson['building'] + "';"
-            else:
-                sql = "SELECT Name FROM Room"
-            self.cursor.execute(sql)
-            result = self.cursor.fetchall()
-            # print(result) #debug
-            return result
-        except:
-            pass
-        finally:
-            pass
 
     # This methods uses getroomlist to get a list of rooms, then iterate trhough everyrrom and for every room iterate
     ## for every booing on that room to see if it is overlap. It is not very efficient.
     def getAvailableRooms(self, innputjson):
-        # This method gets rooms. Optional filters: buidling, time which it is free. AvRooms contains roomname and id for rooms that fullfills the demands
-        allRooms = self.getRommList(innputjson)
-        AvRooms = []
-        if 'from' in innputjson.keys() and 'to' in innputjson.keys():
-            for i in allRooms:
-                flag = True
-                try:
-                    sql = "SELECT * FROM Booking where Room_ID1='" + str(i['Id']) + "'"
-                    self.cursor.execute(sql)
-                    allBookingsPerRoom = self.cursor.fetchall()
-                    for j in allBookingsPerRoom:
-                        if checkTimeOverlap([j['FromTimeNumber'], j['ToTimeNumber']],
-                                            [innputjson['from'], innputjson['to']]) != 0:
-                            flag = False
-                    if flag == True:
-                        AvRooms.append(i)
-                except:
-                    return [{'type': 'error', 'errorMsg': 'getAvaiRooms'}]
-                finally:
-                    pass
+        print(innputjson)
+        if 'building' in innputjson.keys() and 'from' in innputjson.keys() and 'to' in innputjson.keys():
+            sql="SELECT * FROM Room WHERE Id NOT IN (SELECT DISTINCT Room_Id1 FROM Booking WHERE FromTimeNumber<='%s' AND ToTimeNumber>='%s');"% (innputjson['to'], innputjson['from'])
+            self.cursor.execute(sql)
+        elif 'building' in innputjson.keys():
+            sql = "SELECT * FROM Room INNER JOIN Position INNER JOIN Building WHERE Building.Name='%s';" % (innputjson['building'])
         else:
-            AvRooms = allRooms
+            sql = "SELECT * FROM Room"
+        self.cursor.execute(sql)
+        AvRooms = self.cursor.fetchall()
         AvRooms.append({'type': 'list', 'clientname': innputjson['clientname']})
         return AvRooms
 
     # myBooking shows every booking for one user.
     def myBookings(self, inputJson):
-        try:
+        #try:
             booking = []
-            sql = "SELECT * From Booking where User_Id='" + str(inputJson['user']) + "';"
+            sql = "SELECT * From Booking where User_Id='%s';" %(str(inputJson['user']))
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
             for i in result:
+                tid1=i['FromTimeNumber']
+                tid2=i['ToTimeNumber']
+                i['FromTimeNumber']=tid1.strftime('%c')
+                i['ToTimeNumber']=tid2.strftime('%c')
                 booking.append(i)
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
             return booking
-        except:
-            return [{'type': 'error', 'errorMsg': 'mybookings'}]
-        finally:
-            pass
+        #except:
+            #return [{'type': 'error', 'errorMsg': 'mybookings'}]
+        #finally:
+            #pass
 
     def RFIDisUser(self, innputjson):
         try:
             sql = "SELECT Id FROM User WHERE RFID='%s';" % (innputjson['RFID'])
             self.cursor.execute(sql)
-            # self.connection.commit()
             user = self.cursor.fetchone()
-            return [{'type': 'RFIDisUser', 'userId': user, 'RFID': innputjson['RFID']}]
+            return [{'type': 'RFIDisUser', 'userId': user['Id'], 'RFID': innputjson['RFID']}] #todo: fix the user id field so its not returned as its own dict
         except:
             return [{'type': 'error', 'errorMsg': 'RFIDisUser'}]
         finally:
@@ -97,21 +70,24 @@ class db():
     def cardAsk(self, innputjson):
         # Is there a booking for that room at this moment?
         # If yes, then is it the same user that queries?
-        flag = True
         try:
-            sql = "SELECT * FROM Booking where Room_ID1='" + str(innputjson['roomId']) + "'"
+            if 'user' not in innputjson.keys():
+                innputjson['user']=self.RFIDisUser(innputjson)[0]['userId']
+            print(innputjson)
+            sql="SELECT DISTINCT Room_Id1, User_Id, Id FROM Booking WHERE Room_Id1=%s AND FromTimeNumber<NOW() AND ToTimeNumber>now();" % (innputjson['roomId'])
             self.cursor.execute(sql)
-            allBookingsPerRoom = self.cursor.fetchall()
-            for j in allBookingsPerRoom:
-                tid = int(time.time())
-                if checkTimeOverlap([j['FromTimeNumber'], j['ToTimeNumber']], [tid, tid + 5]) != 0:
-                    flag = False
-                    if innputjson['user'] == j['User_Id']:
-                        message = "confirmed"
-                    else:
-                        message = "busy"
-            if flag == True:  # todo everything here must 'ordnes med'
+            resset=self.cursor.fetchall()
+            verdi=len(resset)
+            if verdi==None or verdi==0:
                 message = "bookable"
+            elif verdi==1:
+                if innputjson['user'] == resset[0]['User_Id']:
+                    message = "confirmed"
+                    sql = "UPDATE Booking SET Confirmed=1 WHERE ID=%s;" % (resset[0]['Id'])
+                    self.cursor.execute(sql)
+                    self.connection.commit()
+                else:
+                    message = "busy"
             return [{'type': 'cardAsked', 'clientname': innputjson['clientname'], "response": message}]
         except:
             return [{'type': 'error', 'errorMsg': 'cardAsk'}]
@@ -137,8 +113,11 @@ class db():
         try:
             sql = "INSERT INTO Booking (Room_Id1, FromTimeNumber, ToTimeNumber, User_Id) VALUES ('%s', %s, %s, %s ) " % (
             inputjson['roomId'], inputjson['from'], inputjson['to'], inputjson['user'])
-            self.cursor.execute(sql)
-            self.connection.commit()
+            if experimentmode:
+                print(sql)
+            else:
+                self.cursor.execute(sql)
+                self.connection.commit()
             return [{'type': 'makeBooking', 'msg': 'Ok'}]
         except:
             return [{'type': 'error', 'errorMsg': 'makeBooking'}]
@@ -148,10 +127,17 @@ class db():
     def deleteBooking(self, inputjson):
         try:
             sql = "DELETE FROM Booking WHERE Id=%s;" % (inputjson['bookingId'])
-            self.cursor.execute(sql)
-            self.connection.commit()
+            if experimentmode:
+                print(sql)
+            else:
+                self.cursor.execute(sql)
+                self.connection.commit()
             return [{'type': 'deleteBooking', 'msg': 'Ok'}]
         except:
             return [{'type': 'error', 'errorMsg': 'deleteBooking'}]
         finally:
             pass
+
+    def addRoom(self, inputjson):
+        pass
+

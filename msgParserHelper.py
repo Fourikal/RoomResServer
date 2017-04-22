@@ -14,6 +14,7 @@ class parser:
         clientlist={1: mqttFields.topic2}
         data=json.dumps(payload)
         client.publish(clientlist[1], data)
+        return
 
     def choose(self, innputjson1, client): # Choose method
         if innputjson1['command']=='liste':
