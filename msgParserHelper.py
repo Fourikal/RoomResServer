@@ -17,20 +17,23 @@ class parser:
         return
 
     def choose(self, innputjson1, client): # Choose method
-        if innputjson1['command']=='liste':
-            self.sendMessage(self.db.getAvailableRooms(innputjson1), client)
-        elif innputjson1['command']=='bookings':
-             self.sendMessage(self.db.myBookings(innputjson1), client)
-        elif innputjson1['command']=='cardask':
-             self.sendMessage(self.db.cardAsk(innputjson1), client)
-        elif innputjson1['command']=='cardCancelRest':
-             self.sendMessage(self.db.cardCancelRest(innputjson1), client)
-        elif innputjson1['command']=='makeBooking':
-             self.sendMessage(self.db.makeBooking(innputjson1), client)
-        elif innputjson1['command']=='deleteBooking':
-             self.sendMessage(self.db.deleteBooking(innputjson1), client)
-        elif innputjson1['command']=='RFIDisUser':
-            self.sendMessage(self.db.RFIDisUser(innputjson1), client)
+        try:
+            if innputjson1['command']=='liste':
+                self.sendMessage(self.db.getAvailableRooms(innputjson1), client)
+            elif innputjson1['command']=='bookings':
+                 self.sendMessage(self.db.myBookings(innputjson1), client)
+            elif innputjson1['command']=='cardask':
+                 self.sendMessage(self.db.cardAsk(innputjson1), client)
+            elif innputjson1['command']=='cardCancelRest':
+                 self.sendMessage(self.db.cardCancelRest(innputjson1), client)
+            elif innputjson1['command']=='makeBooking':
+                 self.sendMessage(self.db.makeBooking(innputjson1), client)
+            elif innputjson1['command']=='deleteBooking':
+                 self.sendMessage(self.db.deleteBooking(innputjson1), client)
+            elif innputjson1['command']=='RFIDisUser':
+                self.sendMessage(self.db.RFIDisUser(innputjson1), client)
+        except:
+            pass
 
 
     def parsek(self, msg, client):

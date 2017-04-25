@@ -22,7 +22,6 @@ class db():
     # This methods uses getroomlist to get a list of rooms, then iterate trhough everyrrom and for every room iterate
     ## for every booing on that room to see if it is overlap. It is not very efficient.
     def getAvailableRooms(self, innputjson):
-        print(innputjson)
         if 'building' in innputjson.keys() and 'from' in innputjson.keys() and 'to' in innputjson.keys():
             sql="SELECT * FROM Room WHERE Id NOT IN (SELECT DISTINCT Room_Id1 FROM Booking WHERE FromTimeNumber<='%s' AND ToTimeNumber>='%s');"% (innputjson['to'], innputjson['from'])
             self.cursor.execute(sql)
@@ -37,7 +36,7 @@ class db():
 
     # myBooking shows every booking for one user.
     def myBookings(self, inputJson):
-        #try:
+        try:
             booking = []
             sql = "SELECT * From Booking where User_Id='%s';" %(str(inputJson['user']))
             self.cursor.execute(sql)
@@ -50,10 +49,10 @@ class db():
                 booking.append(i)
             booking.append({'type': 'bookinglist', 'clientname': inputJson['clientname']})
             return booking
-        #except:
-            #return [{'type': 'error', 'errorMsg': 'mybookings'}]
-        #finally:
-            #pass
+        except:
+            return [{'type': 'error', 'errorMsg': 'mybookings'}]
+        finally:
+            pass
 
     def RFIDisUser(self, innputjson):
         try:
@@ -73,7 +72,6 @@ class db():
         try:
             if 'user' not in innputjson.keys():
                 innputjson['user']=self.RFIDisUser(innputjson)[0]['userId']
-            print(innputjson)
             sql="SELECT DISTINCT Room_Id1, User_Id, Id FROM Booking WHERE Room_Id1=%s AND FromTimeNumber<NOW() AND ToTimeNumber>now();" % (innputjson['roomId'])
             self.cursor.execute(sql)
             resset=self.cursor.fetchall()
