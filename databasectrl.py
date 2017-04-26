@@ -69,15 +69,24 @@ class db():
     def cardAsk(self, innputjson):
         # Is there a booking for that room at this moment?
         # If yes, then is it the same user that queries?
+        print(innputjson)
         try:
             if 'user' not in innputjson.keys():
                 innputjson['user']=self.RFIDisUser(innputjson)[0]['userId']
+                print(innputjson['user'])
             sql="SELECT DISTINCT Room_Id1, User_Id, Id FROM Booking WHERE Room_Id1=%s AND FromTimeNumber<NOW() AND ToTimeNumber>now();" % (innputjson['roomId'])
             self.cursor.execute(sql)
             resset=self.cursor.fetchall()
             verdi=len(resset)
             if verdi==None or verdi==0:
-                message = "bookable"
+                fromtime=datetime.datetime.now()
+                totime=fromtime.replace(hour=fromtime.hour+2, minute=0, second=0)
+                print(fromtime, totime)
+                sql="insert into Booking(FromTimeNumber, ToTimeNumber, Room_Id1, User_Id, Confirmed) VALUES ('%s', '%s', %s, %s, 1)" % (fromtime.strftime('%y-%m-%d %H:%M:%S'), totime.strftime('%y-%m-%d %H:%M:%S'), innputjson['roomId'], innputjson['user'])
+                print(sql)
+                self.cursor.execute(sql)
+                self.connection.commit()
+                message = "booked"
             elif verdi==1:
                 if innputjson['user'] == resset[0]['User_Id']:
                     message = "confirmed"
@@ -85,8 +94,9 @@ class db():
                     self.cursor.execute(sql)
                     self.connection.commit()
                 else:
-                    message = "busy"
-            return [{'type': 'cardAsked', 'clientname': innputjson['clientname'], "response": message}]
+                    message = "denied"
+            print(message)
+            return [{'type': 'cardAsked', "response": message}]
         except:
             return [{'type': 'error', 'errorMsg': 'cardAsk'}]
             pass
